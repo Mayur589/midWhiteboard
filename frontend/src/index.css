@@ -1,0 +1,100 @@
+:root {
+     --bg-color: #121212;
+     --panel-bg: #1e1e1e;
+     --accent: #6366f1; /* Indigo */
+     --text-primary: #ffffff;
+     --text-secondary: #a1a1aa;
+     --border: #333333;
+}
+
+html,
+body {
+     margin: 0;
+     padding: 0;
+     height: 100%;
+     width: 100%;
+     overflow: hidden; /* Stops bounce scroll */
+     overscroll-behavior: none; /* Stops "pull to refresh" on mobile */
+     font-family:
+          "Inter",
+          system-ui,
+          -apple-system,
+          sans-serif;
+     background-color: var(--bg-color);
+     color: var(--text-primary);
+}
+
+/* The "HUD" container */
+.hud-panel {
+     background: var(--panel-bg);
+     border: 1px solid var(--border);
+     border-radius: 16px;
+     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+
+     /* FIX FOR SAFARI: Add webkit prefix */
+     -webkit-backdrop-filter: blur(10px);
+     backdrop-filter: blur(10px);
+
+     transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hud-panel:hover {
+     border-color: #555;
+}
+
+/* Gamified Buttons */
+.tool-btn {
+     background: transparent;
+     border: none;
+     color: var(--text-secondary);
+     padding: 10px;
+     border-radius: 12px;
+     cursor: pointer;
+     transition: all 0.2s ease;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+
+.tool-btn:hover {
+     background: rgba(255, 255, 255, 0.1);
+     color: white;
+     transform: translateY(-2px); /* Lift up effect */
+}
+
+.tool-btn.active {
+     background: var(--accent);
+     color: white;
+     box-shadow: 0 0 15px rgba(99, 102, 241, 0.5); /* Glow effect */
+}
+
+/* Room Code Badge */
+.room-badge {
+     font-family: "Courier New", monospace; /* Code look */
+     background: #000;
+     padding: 4px 8px;
+     border-radius: 6px;
+     color: #10b981; /* Matrix Green */
+     border: 1px solid #10b981;
+}
+
+canvas {
+     touch-action: none; /* CRITICAL: Disables scrolling on mobile so you can draw */
+     background-color: transparent;
+}
+
+/* Make toolbar responsive on small screens */
+@media (max-width: 600px) {
+     .hud-panel {
+          background: var(--panel-bg);
+          border: 1px solid var(--border);
+          border-radius: 16px;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+
+          /* FIX FOR SAFARI: Add webkit prefix */
+          -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+
+          transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+     }
+}

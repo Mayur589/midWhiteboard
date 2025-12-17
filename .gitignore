@@ -1,0 +1,11 @@
+# Node modules (Frontend)
+node_modules/
+dist/
+.env
+
+# Go binaries (Backend)
+server/whiteboard  # Linux/Mac binary name
+server/whiteboard.exe # Windows binary name
+
+# OS junk
+.DS_Store
